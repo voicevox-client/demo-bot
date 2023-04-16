@@ -1,0 +1,3 @@
+discord.py
+uvloop
+voicevox-client
