@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-bot-deployment
+  labels:
+    bot: demo
+spec:
+  selector:
+    matchLabels:
+      bot: demo
+  template:
+    metadata:
+      labels:
+        bot: demo
+    spec:
+      containers:
+      - name: bot
+        image: ghcr.io/voicevox-client/demo-bot:latest
+        env:
+        - name: DISCORD_TOKEN
+          valueFrom:
+            name: bot-secret
+            key: token
